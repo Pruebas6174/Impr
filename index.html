@@ -134,7 +134,7 @@
             const discountDate = new Date();
             discountDate.setDate(now.getDate() + 15);
 
-            document.getElementById('purchase-date').textContent = `Día de la compra: ${formatDate(now)}`;
+            document.getElementById('purchase-date').textContent = `Fecha: ${formatDate(now)}`;
             document.getElementById('discount-date').textContent = `Válido hasta: ${formatDate(discountDate)}`;
         }
 
@@ -163,7 +163,7 @@
     <div class="left-panel">
         <img src="image3.png" alt="Imagen">
         <div class="line" id="Fech">
-            <p id="purchase-date">Día de la compra:</p>
+            <p id="purchase-date">Fecha:</p>
         </div>
         <div class="line">
             <span>Valor total de la compra:</span>
