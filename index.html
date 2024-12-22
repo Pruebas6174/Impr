@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
         }
         .left-panel {
-            width: 40%;
+            width: 20%;
             padding: 20px;
             border-right: 1px solid #ccc;
             display: flex;
@@ -21,7 +21,7 @@
             background-color: #f9f9f9;
         }
         .right-panel {
-            width: 60%;
+            width: 80%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -46,7 +46,6 @@
             width: 100%;
             font-size: 12px;
             color: #555;
-            margin-bottom: 8px;
         }
         img {
             width: 100%;
@@ -81,6 +80,29 @@
         }
         button:hover {
             background-color: #fd72df;
+        }
+
+        /* Estilos para la impresión */
+        @media print {
+            /* Ocultamos todo lo que está en la derecha */
+            .right-panel {
+                display: none;
+            }
+            /* Aseguramos que la izquierda ocupe toda la página */
+            .left-panel {
+                width: 100%;
+                display: block;
+            }
+            /* Ajustamos márgenes y otras propiedades para impresión */
+            body {
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            /* Opcional: ajustamos el tamaño de los botones para que no sean tan grandes */
+            button {
+                display: none;  /* No queremos botones en la impresión */
+            }
         }
     </style>
     <script>
@@ -142,13 +164,12 @@
             <p id="discount-date">Válido hasta:</p>
         </div>
         <div class="line">
-            <p id="Direccion">Encuentranos en la Carrera 56 # 2A - 55</p>
+            <p id="Direccion">Encuentranos en la Carrera 56 # 2A - 57</p>
         </div>
         <div class="separator"></div>
         <div class="centered-text">Términos y Condiciones:</div>
         <div class="centered-text">Vigencia de 15 días</div>
         <div class="centered-text">Solo es redimible realizando una compra por minimo el doble del valor ganado</div>
-        <div class="centered-text">Debe entregar el recibo para hacer efectivo el descuento</div>
     </div>
 
     <div class="right-panel">
@@ -163,9 +184,10 @@
             <button onclick="calculatePercentage(50)">50%</button>
         </div>
         <!-- Botón de imprimir página -->
-        <div class="button-print">
+        <div class="button-container">
             <button onclick="printPage()">Imprimir Página</button>
         </div>
     </div>
 </body>
 </html>
+
