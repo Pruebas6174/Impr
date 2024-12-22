@@ -107,6 +107,11 @@
             document.getElementById('amount-display').innerText = result.toFixed(2);
         }
 
+        // Función para imprimir la página
+        function printPage() {
+            window.print();
+        }
+
         // Actualizar las fechas automáticamente al cargar la página y en tiempo real
         window.onload = () => {
             updateDates(); // Actualiza las fechas al cargar
@@ -154,6 +159,10 @@
             <button onclick="calculatePercentage(20)">20%</button>
             <button onclick="calculatePercentage(30)">30%</button>
             <button onclick="calculatePercentage(50)">50%</button>
+        </div>
+        <!-- Botón de imprimir página -->
+        <div class="button-container">
+            <button onclick="printPage()">Imprimir Página</button>
         </div>
     </div>
 </body>
