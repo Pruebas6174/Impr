@@ -76,8 +76,8 @@
             border-radius: 5px;
             cursor: pointer;
             flex: 1;
-            max-width: 120px;
-            margin-bottom: 20px;
+            max-width: 80px;
+            margin-bottom: 10px;
         }
         button:hover {
             background-color: #fd72df;
@@ -91,14 +91,19 @@
             }
             /* Aseguramos que la izquierda ocupe toda la página */
             .left-panel {
-                width: 110%;
+                width: 100%; /* Ancho completo */
                 display: block;
+                padding: 20px; /* Añadimos un poco de espacio */
+                box-sizing: border-box; /* Asegura que el padding no aumente el tamaño */
             }
             /* Ajustamos márgenes y otras propiedades para impresión */
             body {
                 margin: 0;
                 padding: 0;
                 display: block;
+                width: 100%; /* Ancho completo */
+                height: 100%; /* Alto completo */
+                overflow: visible; /* Asegura que no haya desbordamiento */
             }
             /* Opcional: ajustamos el tamaño de los botones para que no sean tan grandes */
             button {
@@ -145,7 +150,7 @@
 </head>
 <body>
     <div class="left-panel">
-        <img src="image1.png" alt="Imagen">
+        <img src="image.png" alt="Imagen">
         <div class="line" id="Fech">
             <p id="purchase-date">Día de la compra:</p>
         </div>
@@ -191,4 +196,3 @@
     </div>
 </body>
 </html>
-
