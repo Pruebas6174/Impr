@@ -13,7 +13,6 @@
         .left-panel {
             width: 20%;
             padding: 20px;
-            border-right: 1px solid #FFF;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -95,11 +94,12 @@
                 display: block;
                 padding: 20px; /* Añadimos un poco de espacio */
                 box-sizing: border-box; /* Asegura que el padding no aumente el tamaño */
+                height: 50%; /* Solo imprimimos la mitad superior */
+                overflow: hidden; /* Evita que el contenido desborde */
             }
             /* Mostramos la línea divisoria entre la fecha y los términos en la impresión */
             .separator {
                 display: block;
-                border: 1px solid #ccc;
             }
             /* Ajustamos márgenes y otras propiedades para impresión */
             body {
