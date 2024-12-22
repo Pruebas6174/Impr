@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Porcentajes</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .left-panel {
+            width: 20%;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: #f9f9f9;
+        }
+        .right-panel {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .line {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 15px 0;
+        }
+        .centered-text {
+            text-align: center;
+            width: 100%;
+            font-size: 15px;
+            color: #555;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        #total-value {
+            width: 300px;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 15px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #a25cff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+            max-width: 80px;
+        }
+        button:hover {
+            background-color: #fd72df;
+        }
+    </style>
+    <script>
+        // Función para formatear la fecha y hora en el formato deseado
+        function formatDate(date) {
+            return date.toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+        }
+
+        // Función para calcular las fechas y mostrarlas
+        function updateDates() {
+            const now = new Date();
+            const discountDate = new Date();
+            discountDate.setDate(now.getDate() + 15);
+
+            document.getElementById('purchase-date').textContent = `Día de la compra: ${formatDate(now)}`;
+            document.getElementById('discount-date').textContent = `Válido hasta: ${formatDate(discountDate)}`;
+        }
+
+        function calculatePercentage(percentage) {
+            const totalInput = document.getElementById('total-value');
+            const totalValue = parseFloat(totalInput.value) || 0;
+            const result = totalValue * (percentage / 100);
+            document.getElementById('total-value-display').innerText = totalValue.toFixed(2);
+            document.getElementById('percentage-display').innerText = `${percentage}%`;
+            document.getElementById('amount-display').innerText = result.toFixed(2);
+        }
+
+        // Actualizar las fechas automáticamente al cargar la página y en tiempo real
+        window.onload = () => {
+            updateDates(); // Actualiza las fechas al cargar
+            setInterval(updateDates, 1000); // Actualiza las fechas cada segundo
+        };
+    </script>
+</head>
+<body>
+    <div class="left-panel">
+        <img src="image.png" alt="Imagen">
+        <div class="line" id="Fech">
+            <p id="purchase-date">Día de la compra:</p>
+        </div>
+        <div class="line">
+            <span>Valor total de la compra:</span>
+            <span id="total-value-display">0.00</span>
+        </div>
+        <div class="line">
+            <span>Felicitaciones Ganaste:</span>
+            <span id="percentage-display">0%</span>
+        </div>
+        <div class="line">
+            <span>Saldo a tu favor:</span>
+            <span id="amount-display">0.00</span>
+        </div>
+        <div class="line" id="Fech">
+            <p id="discount-date">Válido hasta:</p>
+        </div>
+        <div class="line">
+            <p id="Direccion">Encuentranos en la Carrera 56 # 2A - 57</p>
+        </div>
+        <div class="separator"></div>
+        <div class="centered-text">Términos y Condiciones:</div>
+    </div>
+
+    <div class="right-panel">
+        <div>
+            <label for="total-value">Valor Total:</label>
+            <input type="number" id="total-value" placeholder="Ingrese un valor">
+        </div>
+        <div class="button-container">
+            <button onclick="calculatePercentage(10)">10%</button>
+            <button onclick="calculatePercentage(20)">20%</button>
+            <button onclick="calculatePercentage(30)">30%</button>
+            <button onclick="calculatePercentage(50)">50%</button>
+        </div>
+    </div>
+</body>
+</html>
