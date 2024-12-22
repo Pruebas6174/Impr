@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
         }
         .left-panel {
-            width: 20%;
+            width: 40%;
             padding: 20px;
             border-right: 1px solid #ccc;
             display: flex;
@@ -21,7 +21,7 @@
             background-color: #f9f9f9;
         }
         .right-panel {
-            width: 80%;
+            width: 60%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -66,6 +66,9 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
+        }
+        .button-print{
+            max-width: 120px;
         }
         button {
             padding: 15px 20px;
@@ -163,7 +166,7 @@
             <button onclick="calculatePercentage(50)">50%</button>
         </div>
         <!-- Botón de imprimir página -->
-        <div class="button-container">
+        <div class="button-print">
             <button onclick="printPage()">Imprimir Página</button>
         </div>
     </div>
